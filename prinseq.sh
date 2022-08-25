@@ -19,9 +19,9 @@ then
 	# set temp zip output file
 	#temp_zip=$(mktemp -u /media/GalaxyData/database/files/XXXXXX.zip)
 	#temp_zip=$(mktemp -u /home/galaxy/galaxy/database/XXXXXX.zip)
-  #outlocation=$(mktemp -d /home/galaxy/galaxy/database/files/XXXXXX)
-	temp_zip=$(mktemp -u /media/GalaxyData/database/files/XXXXXX.zip)
-  outlocation=$(mktemp -d /media/GalaxyData/database/files/XXXXXX)
+        #outlocation=$(mktemp -d /home/galaxy/galaxy/database/files/XXXXXX)
+	temp_zip=$(mktemp -u /galaxy_fs/tmp/XXXXXXXX.zip)
+        outlocation=$(mktemp -d /galaxy_fs/tmp/XXXXXXXX)
 	# go through the files in the zip
 	IFS=$'\n'
 	for file in $(zipinfo -1 "$5")
@@ -29,7 +29,7 @@ then
 		unzip -qq -j "$5" "$file" -d $outlocation
 		if [ "${file##*.}" == "gz" ]
 		then
-        gunzip $outlocation"/"$file
+                gunzip $outlocation"/"$file
 				sample="${file%.*}"
 			  file="$outlocation"/"${file%.*}"
 		else
@@ -41,7 +41,7 @@ then
 		if [ $(head -n 1 $file | grep -o "^.") == "$header" ]
 		then
 			# set temp file for the reads
-			temp=$(mktemp /media/GalaxyData/database/files/XXXXXX)
+			temp=$(mktemp /galaxy_fs/tmp/XXXXXXXX)
 			#temp=$(mktemp /home/galaxy/galaxy/database/XXXXXX)
 
 			# unzip the reads to the temp file, remove the temp file without the extension afterwards

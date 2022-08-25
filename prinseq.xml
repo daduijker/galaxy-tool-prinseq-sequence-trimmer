@@ -1,4 +1,4 @@
-<?xml version="2.0"?>
+<?xml version="1.0"?>
 <tool id="prinseq_trimmer" name="Sequence trimmer" version="1.0">
         <!--<description>Trim and filter a set of sequences.</description>-->
         <requirements>
@@ -6,10 +6,10 @@
       	</requirements>
         <!-- collect the parameters and provide these to the wrapper script -->
         <command>
-<![CDATA[
+		<![CDATA[
                 bash '$__tool_directory__/prinseq.sh'
 		$input_type.input_format
-    $output_log
+		$output_log
 		#if $input_type.input_format == "hist"
 			$input_type.in_seq.in_seq_format
 			#if $input_type.in_seq.in_seq_format == "-fastq"
@@ -86,8 +86,8 @@
 			-derep $dup.derep
 		#end if
 
-]]>
-	</command>
+		]]>
+		</command>
 
 	<macros>
 		<!-- macros for both the input and output sequence type (fastq or fasta) -->
