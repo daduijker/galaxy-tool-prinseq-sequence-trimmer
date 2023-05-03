@@ -1,0 +1,9 @@
+categories: 
+  - Fastq Manipulation
+  - Fasta Manipulation
+description: The PRINSEQ sequence filter / converter tool. Use PRINSEQ to either cleanup raw sequence data (by filtering or trimming) or converting data from one file format into the other (FASTQ > FASTA).
+homepage_url: https://github.com/naturalis/galaxy-tool-prinseq-sequence-trimmer
+name: naturalis_prinseq_sequence_trimmer
+owner: duijker.d
+remote_repository_url: https://gitlab.com/LCAB-Bioinformatics/galaxy/naturalis/galaxy-tool-prinseq-sequence-trimmer
+type: unrestricted
